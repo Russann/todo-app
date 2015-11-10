@@ -8,7 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var htmlmin = require('gulp-htmlmin');
 var livereload = require('gulp-livereload');
 var express = require('express');
-var pleeease = require('gulp-pleease');
+var pleeease = require('gulp-pleeease');
 var lib = require('bower-files')({
   overrides: {
     bootstrap: {
@@ -81,7 +81,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('templates', function () {
-  return gulp.src('scr/templates/**/*.html')
+  return gulp.src('src/templates/**/*.html')
   .pipe(htmlmin( {
     collapseWhitespace: true
   }))
