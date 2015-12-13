@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<div>
+  <h1>Todos</h1>
+  <ul>
+    <li ng-repeat="todo in todos">
+      <input type="checkbox" ng-model="todo.completed" />
+      <span ng-class="{completed: todo.completed}">{{ todo.name }}</span>
+      <button ng-click="delete($index)">Delete</button>
+    </li>
+  </ul>
+</div>

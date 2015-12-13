@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 
 <div>
   <h1>Todos</h1>
@@ -5,8 +6,8 @@
 
   <ul class="list-group">
       <li class="list-group-item" ng-repeat="todoItem in todo.todos | filter:todo.selectedFilter.value">
-        <input type="checkbox" ng-model="todoItem.completed" ng-change="todo.updateTodo(todoItem)"/>
-        <span ng-class="{ strikethrough: todoItem.completed }">{todoItem.name}</span>
+          <input type="checkbox" ng-model="todoItem.completed" ng-change="todo.updateTodo(todoItem)"/>
+          <span ng-class="{ strikethrough: todoItem.completed }">{{todoItem.name}}</span>
           <button class="btn btn-xs btn-danger pull-right" ng-click="todo.archiveTodo(todoItem)">
         <span class="glyphicon glyphicon-remove"></span>
           </button>

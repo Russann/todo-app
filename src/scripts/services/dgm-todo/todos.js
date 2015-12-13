@@ -6,6 +6,8 @@ angular
   '$http',
   'dgmTodoHost',
   function($http, host) {
+'use strict';
+
     return {
       create: function(userId, data) {
         return $http
@@ -21,7 +23,7 @@ angular
             return res.data;
           });
       },
-      update: function(userId, id, data) {
+      update: function(userId) {
         return $http
           .put(host + '/users/' + userId + '/todos/' + id, data)
           .then(function(res) {

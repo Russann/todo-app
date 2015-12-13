@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<div>
+  <h1>Add Todo</h1>
+  <form ng-submit="submit()">
+    <input placeholer="Todo Name" ng-model="todoName" />
+    <input type="submit" value="create" />
+  </form>
+
+  <p>Preview</p>
+  <ul>
+    <li>{{ todoName }}</li>
+  </ul>
+</div>
