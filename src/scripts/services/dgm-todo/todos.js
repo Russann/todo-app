@@ -23,7 +23,7 @@ angular
             return res.data;
           });
       },
-      update: function(userId) {
+      update: function(userId, id, data) {
         return $http
           .put(host + '/users/' + userId + '/todos/' + id, data)
           .then(function(res) {

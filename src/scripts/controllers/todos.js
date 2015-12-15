@@ -10,6 +10,8 @@ angular
   function(auth, $location, todos) {
     'use strict';
 
+    var self = this;
+
     auth.isLoggedIn().then(function(currentUser) {
       if(!currentUser) {
         $location.url('/login');
@@ -37,25 +39,26 @@ angular
     self.createTodo = function (data) {
 
       var todo = {
-      name: data.name,
-      description: data.description || 'No Description',
-      tags: (data.tags || '')
-      .split(',')
-      .map(function (tag) {
-        return tag;
-      })
-      .filter(function(tag) {
-        return tag;
-    })
+        name: data.name,
+        description: data.description || 'No Description',
+        tags: (data.tags || '')
+          .split(',')
+          .map(function (tag) {
+            return tag;
+          })
+          .filter(function(tag) {
+            return tag;
+          })
       };
 
-      todos.create(self.currentUser,id,todo)
+      todos.create(self.currentUser.id, todo)
       .then(function() {
         readTodos();
         resetCreateForm();
         console.log('success');
 
       });
+    };
 
       self.updateTodo = function(todo) {
         var updatedTodo = {
@@ -64,18 +67,17 @@ angular
           archived: todo.archived,
         };
 
-        todos.update(self.currentUser.id, todo.id, todo)
+        todos.update(self.currentUser.id, todo.id, updatedTodo)
         .then(function () {
           readTodos();
-})
-          .catch(function (err) {
-            console.log(err);
-          });
-};
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+      };
     self.archiveTodo = function(todo) {
       todo.archived = true;
       self.updateTodo(todo);
     };
 
-};
 }]);

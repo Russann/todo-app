@@ -40,7 +40,7 @@ angular
           .get(host + '/session')
           .then(function(res) {
             currentUser = res.data;
-            return true;
+            return currentUser;
           })
           .catch(function(res) {
             currentUser = null;
